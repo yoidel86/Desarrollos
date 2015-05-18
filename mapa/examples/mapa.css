@@ -1,0 +1,92 @@
+.land
+{
+    fill: #CCCCCC;
+    fill-opacity: 1;
+    stroke:#999999;
+    stroke-opacity: 1;
+    stroke-width:0.5;
+}
+.titles{
+    display: inline-block;
+
+    color:#003366;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+.titles:first-child>.separator {
+    display: none
+}
+
+.separator{
+    display: inline-block;
+    margin: 15px;
+    font-size: 24px;
+}
+.separator:only-child(0){
+    display: none;
+}
+.titles:hover{
+
+}
+.titles>text:hover{
+    cursor: pointer;
+    color:#8C8C8C;
+
+}
+.selected
+{
+    fill: #0066ff;
+    fill-opacity: 1;
+    stroke:white;
+    stroke-opacity: 1;
+    stroke-width:0.5;
+    transition:all 1s  ;
+}
+#header{
+    margin-left: 60px;
+}
+#offices {
+    display: inline-block;
+    height: 400px;
+    background: none repeat scroll 0% 0% transparent;
+    vertical-align: top;
+    margin-left: -420px;
+    align-content: center;
+    width: 310px;
+    margin-top: -10px;
+    top: -10px;
+}
+#content {
+    display: inline-block;
+    width: 1000px;
+    margin-top: 30px;
+}
+#textDescription{
+    transform: translate(60px, 20px);
+    fill: #666666;
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: bold;
+}
+#textUrl{
+    transform: translate(690px, 490px);
+    fill: #003366;
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.directionContent {
+    background-image: url('listIcon.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    padding-left: 22px;
+    margin-bottom: 10px;
+    color: #666666;
+    font-family: Arial;
+    font-size: 16px;
+    padding-top: 5px;
+}
+
