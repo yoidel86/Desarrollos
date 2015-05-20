@@ -10,7 +10,7 @@
     display: inline-block;
 
     color:#003366;
-    font-size: 18px;
+    font-size: 16px;  /*18*/
     font-family: sans-serif;
 }
 
@@ -21,7 +21,7 @@
 .separator{
     display: inline-block;
     margin: 15px;
-    font-size: 24px;
+    font-size: 22px; /*24*/
 }
 .separator:only-child(0){
     display: none;
@@ -44,38 +44,38 @@
     transition:all 1s  ;
 }
 #header{
-    margin-left: 60px;
+    margin-left: 30px;
 }
 #offices {
-    display: inline-block;
-    height: 400px;
-    background: none repeat scroll 0% 0% transparent;
-    vertical-align: top;
-    margin-left: -420px;
     align-content: center;
-    width: 310px;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 350px;
+    margin-left: -355px;
     margin-top: -10px;
     top: -10px;
+    vertical-align: top;
+    width: 310px;
 }
 #content {
     display: inline-block;
-    width: 1000px;
+    width: 800px;
     margin-top: 30px;
 }
-#textDescription{
-    transform: translate(60px, 20px);
+#textDescription {
     fill: #666666;
     font-family: Arial;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
+    transform: translate(30px, 20px);
 }
-#textUrl{
-    transform: translate(690px, 490px);
+#textUrl {
+    cursor: pointer;
     fill: #003366;
     font-family: Arial;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
-    cursor: pointer;
+    transform: translate(535px, 400px);
 }
 .directionContent {
     background-image: url('listIcon.png');
@@ -86,7 +86,7 @@
     margin-bottom: 10px;
     color: #666666;
     font-family: Arial;
-    font-size: 16px;
+    font-size: 14px;
     padding-top: 5px;
 }
 

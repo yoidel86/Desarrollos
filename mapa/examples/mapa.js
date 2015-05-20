@@ -49,11 +49,11 @@ function pulse() {
     (function repeat() {
         circle = circle.transition()
             .duration(100)
-            .attr("r", 5)
+            .attr("r", 3)
             .style("opacity",1)
             .transition()
             .duration(1000)
-            .attr("r", 15)
+            .attr("r", 10)
             .style("opacity",0.2)
             .ease('sine')
             .each("end", repeat);
