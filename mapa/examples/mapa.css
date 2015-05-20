@@ -32,8 +32,8 @@
 .titles>text:hover{
     cursor: pointer;
     color:#8C8C8C;
-
 }
+
 .selected
 {
     fill: #0066ff;
@@ -59,7 +59,8 @@
 }
 #content {
     display: inline-block;
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
     margin-top: 30px;
 }
 #textDescription {
