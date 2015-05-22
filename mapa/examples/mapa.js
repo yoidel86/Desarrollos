@@ -6,19 +6,47 @@ function loadData(d){
     clearSelection();
     description.text(d.Description);
     textUrl.text(d.textUrl);
+
     var divs = directions.selectAll('div')
         .data(d.Offices)
         .enter()
         .append('div')
         .attr('class','directionContent')
-        /* .append('text')
-         .attr('class','directionText')*/
+        .append('text') .attr('class','directionText')
         .html(function(d){
             return d.text;
         })
 
     var jsonCircles = [];
     for(var i=0;i< d.Offices.length;i++){
+
+
+//        <rect class="shape" height="50px" width="150px" y="50px"></rect>
+//        <text id="rectWrap" class="wrap" y="50px" font-size="12">
+//            Here is a long text string that SVG should wrap by default, but it does not.
+//        </text>
+/*
+        svg.append('rect')
+            .attr('class','shape')
+            .attr('height',60)
+            .attr('width',320)
+            .attr('x',500)
+            .attr('transform','translate(0,-20)')
+            .attr('y',(i*70)+(i*5));
+
+        svg.append('text')
+            .attr('class','wrap')
+            .attr('id',"directionText"+i)
+            .attr('x',500)
+            .attr('y',(i*70))
+            .attr('transform','translate(0,-20)')
+            .text(d.Offices[i].text);
+
+        d3plus.textwrap()
+            .container(d3.select("#directionText"+i))
+            .draw();
+         */
+
         var path = svg.select("#"+d.Offices[i].cityId);
         path.attr("class","selected");
         jsonCircles.push(d.Offices[i].circle);
@@ -36,11 +64,14 @@ function loadData(d){
         .style("fill", function(d) { return d.color; })
         .each(pulse);
 
+
 }
 
 function clearSelection(){
     svg.selectAll('.selected').attr('class','land');
     svg.selectAll('circle').remove();
+    svg.selectAll('.wrap').remove();
+    svg.selectAll('rect').remove();
     directions.selectAll('div').remove();
 
 }

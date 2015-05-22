@@ -46,6 +46,12 @@ function loadData(d){
 function clearSelection(){
     svg.selectAll('.selected').attr('class','land');
     svg.selectAll('circle').remove();
+    svg.selectAll('rect').remove();
+    svg.selectAll('.wrap').remove();
+    var wrap = svg.selectAll('.wrap');
+    console.log(wrap);
+    svg.selectAll('.wrap').remove();
+    svg.selectAll('tspan').remove();
     directions.selectAll('div').remove();
 
 }
