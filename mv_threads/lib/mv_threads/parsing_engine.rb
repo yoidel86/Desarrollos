@@ -653,7 +653,7 @@ class ParsingEngine < Object
 
       # printing type of message to the console
       # puts("Received message of type:\t#{type}")
-      puts("Type:#{type} Sequence id:#{id} Hora:#{hour}")
+      puts("parseado Type:#{type} Sequence id:#{id} Hora:#{hour}")
 
       # if the message type is nor supported
       unless MSG_PARSER_MAPPER.has_key?(type)
