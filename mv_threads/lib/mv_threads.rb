@@ -1,10 +1,10 @@
-require_relative './mv/network_engine'
+require_relative './mv_threads/network_engine'
 
 #require 'optparse'
-require_relative './mv/data_storage_type'
-require_relative './mv/db/db_create'
-require_relative './mv/db/db_migrate'
-require_relative './mv/db/models/json_sequence'
+require_relative './mv_threads/data_storage_type'
+require_relative './mv_threads/db/db_create'
+require_relative './mv_threads/db/db_migrate'
+require_relative './mv_threads/db/models/json_sequence'
 
 #require "#{File.dirname(__FILE__)}/mv_threads/db/db_create"
 #require "#{File.dirname(__FILE__)}/mv_threads/db/db_migrate"

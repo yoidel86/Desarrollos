@@ -1,5 +1,5 @@
-require_relative '../mv/db/db_create'
-require_relative '../mv/db/db_migrate'
+require_relative '../mv_threads/db/db_create'
+require_relative '../mv_threads/db/db_migrate'
 
 # setting the db config path
 db_config_path = '../mv_threads/db/database.yml'
