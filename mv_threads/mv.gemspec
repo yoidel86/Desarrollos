@@ -2,7 +2,7 @@
 Gem::Specification.new do |spec|
   spec.name               = 'mv_threads'
   spec.version            = '0.0.3.1'
-  spec.authors            = ['YuryDG','jmorrispratt', 'MaxAntonio']
+  spec.authors            = ['Yoidel','YuryDG','jmorrispratt', 'MaxAntonio']
   spec.email              = %q{x@example.com}
   spec.summary            = %q{MvThreads gem summary}
   spec.description        = %q{Something}
