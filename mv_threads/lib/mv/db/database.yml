@@ -1,0 +1,33 @@
+#development:
+#  adapter: sqlite3
+#  database: mv_data.db
+#  pool: 5
+#  timeout: 5000
+
+#development:
+#  adapter: postgresql
+#  encoding: utf8
+#  pool: 5
+#  database: mv_data
+#  username: ubuntu
+#  password: CienFuegos
+
+#development:
+#  adapter: postgresql
+#  encoding: utf8
+#  pool: 5
+#  host: ec2-54-197-241-96.compute-1.amazonaws.com
+#  port: 5432
+#  database: dce7qao33c3opn
+#  username: nfuizakgsvnbzf
+#  password: 0BTuv9J0Hr4cXi9ZoWyqxlGcGa
+
+development:
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  host: virginia1.cmof9julel4m.us-east-1.rds.amazonaws.com
+  port: 5432
+  database: bmv_stream
+  username: kimura99
+  password: BOFMCAM3

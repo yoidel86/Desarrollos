@@ -1,0 +1,1 @@
+Here is where all the data is stored if we choose to use the 'DataStorageType::HDD' data storage type.

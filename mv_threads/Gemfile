@@ -1,0 +1,12 @@
+source 'https://rubygems.org'
+
+gem 'activerecord', '4.2.1'
+
+gem 'sqlite3', '1.3.8'
+
+gem 'pg'
+
+gem 'sentry-raven'
+
+# Specify your gem's dependencies in mv_threads.gemspec
+gemspec

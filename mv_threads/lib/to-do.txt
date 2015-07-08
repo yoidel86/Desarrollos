@@ -1,0 +1,11 @@
+. implement a hierarchy of classes to handle data saving in a cleaner way
+
+. try to implement a destruction mechanism like C++, C#, etc. in order to clean data in a scenario where the class is disposed (cleaning queues, etc.)
+
+. think about the consensus when storing duplicate data (data already processed, and now it's processed again by mistake)
+
+. if some threads are added to the processing part in the server tcp loop, we might have to start thinking about handle the possibility of multiple connections (because right now we rely on the processing taking place in the same thread). for example, when the retry mechanism is fully implemented, i think it will be necessary, or we might have to change to handle a single connection.
+
+. think about a way to stop the full processing task without loosing information already retrived from BMV (how to stop threads-killing them or adding a shared variable indicating that all jobs should stop-).
+
+. think about a pause/restart mechanism for the 'network_engine' and the 'processing_engine'

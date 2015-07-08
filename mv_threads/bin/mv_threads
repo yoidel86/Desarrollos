@@ -1,0 +1,60 @@
+#!/usr/bin/env ruby
+require_relative '../lib/mv_threads'
+
+# get the arguments
+params = ARGV
+
+db = 'DB   Represents information storage in database.'
+hdd = 'HDD  Represents information storage in a file (or several) in the hard drive.'
+ram = 'RAM  Represents information storage in the memory.'
+storage = "-storage storage_type\t\t\t-storage can be replaced by -s\n(Storage Type Description)\n  #{db}\n  #{hdd}\n  #{ram}"
+help = "-h\t\t\t\tShow the help"
+example = "Example for DataBase Storage:\nType in console: ruby path_to_executable -s DB"
+help_to_user = "Wrong arguments.\nType: ruby <path_to_executable> -help 'or' ruby <path_to_executable> -h for help."
+
+#check if get only one parameter
+if params.size == 1
+  # check if the first parameter is the one we are expecting
+  if params[0].downcase == '-h' || params[0].downcase == '-help'
+    # show help information
+    puts "#{help}\n#{storage}\n#{example}"
+  else
+    # Show help message
+    puts help_to_user
+  end
+else
+  # check if get exactly two parameters
+  if params.size == 2
+
+    # check if the first parameter is the one we are expecting
+    if params[0].downcase == '-storage' || params[0].downcase == '-s'
+
+      # cases for second parameter in capital letter
+      case params[1].upcase
+        when 'DB'
+          # 1 = DataStorageType::DB
+          MvThreads.start(1)
+        when 'HDD'
+          # 2 = DataStorageType::HDD
+          MvThreads.start(2)
+        when 'RAM'
+          # 4 = DataStorageType::RAM
+          MvThreads.start(4)
+        else
+          # Show help message
+          puts help_to_user
+      end
+
+    else
+      # Show help message
+      puts help_to_user
+    end
+
+  else
+    # Show help message
+    puts "Inicializando guardado en disco por defecto"
+    MvThreads.start(2)
+  end
+end
+
+#ruby <path_to_executable> <-storage|-s> <storage_type> \n
