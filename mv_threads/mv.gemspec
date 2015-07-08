@@ -47,7 +47,6 @@ Gem::Specification.new do |spec|
   ]
 
   spec.default_executable = 'mv_threads'
-  spec.test_files         = ['test/test_mv.rb']
   spec.require_paths      = ['lib']
 
   spec.add_development_dependency 'bundler', '~> 1.5'
