@@ -61,7 +61,7 @@ class NetworkEngine < Object
         @conn_handle = handle
 
         # starting the processing engine and
-        @process_thread = @processing_engine.start()
+       # @process_thread = @processing_engine.start()
 
         # thread for listening data sent by client
         @reader_thread = listen_data_from_client()

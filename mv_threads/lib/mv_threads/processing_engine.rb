@@ -43,42 +43,42 @@ class ProcessingEngine < Object
   end
 
   # processes the jobs in the @job_queue
-  def start()
-    # creating a processing thread
-    # @worker_thread = Thread.new do
-    Thread.new do
-      # looping indefinitely (til the end of time or the application is killed)
-      loop do
-        # if the @jobs_queue has jobs, then do them
-        if amount_of_unprocessed_jobs <= 0
-          # continue to the loop
-          next
-        end
-
-        # getting the job to process (performing dequeue)
-        sequence_bytes = @jobs_queue.deq()
-
-        # parsing the sequence raw data (it's bytes)
-        parsing_error, parsed_sequence = parse_sequence_bytes(sequence_bytes)
-
-        # if it makes sense to retry
-        if error_deserves_retry(parsing_error)
-          # adding to '@retry_jobs_queue'
-          @retry_jobs_queue.enq(sequence_bytes)
-        else
-          # storing the sequence information
-          store_sequence_bytes(parsing_error, sequence_bytes)
-        end
-
-        # if there was no error while parsing
-        if parsing_error == ParsingErrorType::NO_ERROR
-          # storing the parsed sequence
-          store_sequence_info(sequence_bytes, parsed_sequence)
-        end
-
-      end
-    end
-  end
+  # def start()
+  #   # creating a processing thread
+  #   # @worker_thread = Thread.new do
+  #   Thread.new do
+  #     # looping indefinitely (til the end of time or the application is killed)
+  #     loop do
+  #       # if the @jobs_queue has jobs, then do them
+  #       if amount_of_unprocessed_jobs <= 0
+  #         # continue to the loop
+  #         next
+  #       end
+  #
+  #       # getting the job to process (performing dequeue)
+  #       sequence_bytes = @jobs_queue.deq()
+  #
+  #       # parsing the sequence raw data (it's bytes)
+  #       parsing_error, parsed_sequence = parse_sequence_bytes(sequence_bytes)
+  #
+  #       # if it makes sense to retry
+  #       if error_deserves_retry(parsing_error)
+  #         # adding to '@retry_jobs_queue'
+  #         @retry_jobs_queue.enq(sequence_bytes)
+  #       else
+  #         # storing the sequence information
+  #         store_sequence_bytes(parsing_error, sequence_bytes)
+  #       end
+  #
+  #       # if there was no error while parsing
+  #       if parsing_error == ParsingErrorType::NO_ERROR
+  #         # storing the parsed sequence
+  #         store_sequence_info(sequence_bytes, parsed_sequence)
+  #       end
+  #
+  #     end
+  #   end
+  # end
 
   # stops the processing engine
   def stop()
@@ -89,7 +89,28 @@ class ProcessingEngine < Object
   # adds a new job to the jobs queue
   def add_job_to_process(job_data)
     # pushing the needed data to perform the job (sequence bytes in this case)
-    @jobs_queue.enq(job_data)
+    #@jobs_queue.enq(job_data)
+    Thread.new do
+      sequence_bytes = job_data
+
+      # parsing the sequence raw data (it's bytes)
+      parsing_error, parsed_sequence = parse_sequence_bytes(sequence_bytes)
+
+      # if it makes sense to retry
+      if error_deserves_retry(parsing_error)
+        # adding to '@retry_jobs_queue'
+       # @retry_jobs_queue.enq(sequence_bytes)
+      else
+        # storing the sequence information
+        store_sequence_bytes(parsing_error, sequence_bytes)
+      end
+
+      # if there was no error while parsing
+      if parsing_error == ParsingErrorType::NO_ERROR
+        # storing the parsed sequence
+        store_sequence_info(sequence_bytes, parsed_sequence)
+      end
+    end
   end
 
   # gets the amount of unprocessed jobs
