@@ -121,7 +121,7 @@ class NetworkEngine < Object
           # continue the loop
           next
         end
-
+        puts('fichero recibido listo para procesar')
         # building the whole sequence
         sequence = get_sequence(sequence_header)
         # puts "--- #{sequence}\t ---"
